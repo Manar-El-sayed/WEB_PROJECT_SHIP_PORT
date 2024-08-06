@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ship arrival update</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <!-- css link  -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="admin-crew centered">
+<div class="container ">
+
+            <div class="title">update ship arrival</div>
+            <form action="" method="post" enctype="multipart/form-data">
+            <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">captain Name</span>
+                            <input type="text" placeholder="Enter the captain name" id="captainName" value="" name="captainName" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">arrival date</span>
+                            <input type="text" placeholder="Enter arrival date" id="arrivalDate" value="" name="arrivalDate" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">departure date</span>
+                            <input type="text" placeholder="Enter departure date" id="departureDate" value="" name="departureDate" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">cargo description </span>
+                            <input type="text" placeholder="Enter cargo description" id="cargoDescription" value="" name="cargoDescription" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">arrival status</span>
+                            <input type="text" placeholder="Enter arrival status" id="arrivalStatus" value="" name="arrivalStatus" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">berth allocated</span>
+                            <input type="text" placeholder="Enter berth allocated" id="berthAllocated" value="" name="berthAllocated" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Ship ID</span>
+                            <input type="text" id="shipID" value="" name="shipID" required>
+                        </div>
+                
+                        <div class="input-box">
+                            <span class="details">ship Image</span>
+                            <input type="file" accept=".jpg,.jpeg,.png" id="shipImg" name="shipImg" required>
+                        </div>
+            </div>
+            <div class="button">
+                        <input type="submit" class="btn" name="update_arrival" value="update ship arrival">
+                        <a href="add_arrivals.html">go back</a>
+            </div>
+            </form>
+
+        </div>
+</div>
+
+</body>
+</html>

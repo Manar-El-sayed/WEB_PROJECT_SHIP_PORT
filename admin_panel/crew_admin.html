@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Admin page</title>
+     <!-- font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+     <!-- css link  -->
+     <link rel="stylesheet" href="login.css">
+ </head>
+ <body class="crew">
+ <div class="admin-crew">
+     <div class="form-container">
+     <div class="container">
+             <div class="title">Add member of crew</div>
+            <form action="" method="post" enctype="multipart/form-data">
+             <div class="user-details">
+                         <div class="input-box">
+                             <span class="details">crew Name</span>
+                             <input type="text" placeholder="Enter the name of ship" id="crewName" name="crewName" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">role</span>
+                             <input type="text" placeholder="Enter ship type" id="role" name="role" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">nationality</span>
+                             <input type="text" placeholder="Enter nationality" id="nationality" name="nationality" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">join Date</span>
+                             <input type="date" placeholder="Enter join date" id="joinDate" name="joinDate" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">owner info</span>
+                             <input type="email" placeholder="Enter email" id="contactInfo" name="contactInfo" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Ship ID</span>
+                             <input type="text" id="shipID" name="shipID" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Crew Image</span>
+                             <input type="file" accept=".jpg,.jpeg,.png" id="crewImg" name="crewImg" required>
+                         </div>
+             </div>
+             <div class="button">
+                         <input type="submit" name="add_crew" value="Add member of crew">
+             </div>
+             </form>
+         </div>
+     </div>
+              <div class="crew-display">
+                 <table class="crew-display-table">
+                     <thead>
+                         <tr>
+                             <th>crew image</th>
+                             <th>name</th>
+                             <th>role</th>
+                             <th>nationality</th>
+                             <th>join date</th>
+                             <th>email</th>
+                             <th>action</th>
+                         </tr>
+                     </thead>
+                        <tr>
+                           <td><img src="images/crew5.jpg" height="100" alt=""></td>
+                           <td>ahmed</td>
+                           <td>engineer</td>
+                           <td>american</td>
+                           <td>7/7/2024</td>
+                           <td>mohamed@gmail.com</td>
+                           <td>
+                               
+                               <a href="crew_update.html" class="btn"><i class="fas fa-edit"></i>edit</a>
+                               <a href="crew_admin.html" class="btn"><i class="fas fa-trash"></i>delete</a>
+                           </td>
+                       </tr>
+               </table>
+              </div>
+     </div>    
+ </body>
+</html>

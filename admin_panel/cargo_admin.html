@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Admin page</title>
+     <!-- font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+     <!-- css link  -->
+     <link rel="stylesheet" href="login.css">
+ </head>
+ <body class="crew">
+ <div class="admin-crew">
+     <div class="form-container">
+     <div class="container">
+             <div class="title">Add cargo </div>
+            <form action="" method="post" enctype="multipart/form-data">
+             <div class="user-details">
+                         <div class="input-box">
+                             <span class="details">cargo description </span>
+                             <input type="text" placeholder="Enter cargo description " id="description" name="description" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">cargo quantity </span>
+                             <input type="text" placeholder="Enter cargo quantity" id="quantity" name="quantity" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">cargo weight</span>
+                             <input type="text" placeholder="Enter cargo weight" id="weight" name="weight" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">container type</span>
+                             <input type="text" placeholder="Enter container type" id="containerType" name="containerType" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Ship ID</span>
+                             <input type="text" id="shipID" name="shipID" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">port ID</span>
+                             <input type="text" id="portID" name="portID" required>
+                         </div>
+             </div>
+             <div class="button">
+                         <input type="submit" name="add_cargo" value="Add cargo">
+             </div>
+             </form>
+         </div>
+     </div>
+              <div class="crew-display">
+                 <table class="crew-display-table">
+                     <thead>
+                         <tr>
+                             <th>cargo description </th>
+                             <th>cargo quantity </th>
+                             <th>cargo weight </th>
+                             <th>container type </th>
+                             <th>ship ID</th>
+                             <th>port ID </th>
+                             <th>action</th>
+                         </tr>
+                     </thead>
+                        <tr>
+                           <td>electronics</td>
+                           <td>2000 peice</td>
+                           <td>30000</td>
+                           <td>xyz</td>
+                           <td>5</td>
+                           <td>1</td>
+                           <td>
+                               <a href="cargo_update.html" class="btn"><i class="fas fa-edit"></i>edit</a>
+                               <a href="cargo_admin.html" class="btn"><i class="fas fa-trash"></i>delete</a>
+                           </td>
+                       </tr>
+               </table>
+              </div>
+     </div>
+ </body>
+</html>

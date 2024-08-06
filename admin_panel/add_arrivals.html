@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Admin page</title>
+     <!-- font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+     <!-- css link  -->
+     <link rel="stylesheet" href="login.css">
+ </head>
+ <body class="crew">
+ <div class="admin-crew">
+     <div class="form-container">
+     <div class="container">
+             <div class="title">Add ship arrival</div>
+            <form action="" method="post" enctype="multipart/form-data">
+             <div class="user-details">
+                         <div class="input-box">
+                             <span class="details">Captain Name</span>
+                             <input type="text" placeholder="Enter the name of a captain" id="captainName" name="captainName" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Arrival Date</span>
+                             <input type="text" placeholder="Enter arrival date" id="arrivalDate" name="arrivalDate" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Departure Date</span>
+                             <input type="text" placeholder="Enter Departure Date" id="departureDate" name="departureDate" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Cargo Description</span>
+                             <input type="text" placeholder="Enter cargo description" id="cargoDescription" name="cargoDescription" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Arrival Status</span>
+                             <input type="text" placeholder="Enter arrival status" id="arrivalStatus" name="arrivalStatus" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Berth Allocated</span>
+                             <input type="text" id="berthAllocated" name="berthAllocated" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">Ship ID</span>
+                             <input type="text" id="shipID" name="shipID" required>
+                         </div>
+                         <div class="input-box">
+                             <span class="details">ship Image</span>
+                             <input type="file" accept=".jpg,.jpeg,.png" id="shipImg" name="shipImg" required>
+                         </div>
+             </div>
+             <div class="button">
+                         <input type="submit" name="add_arrival" value="Add ship arrival">
+             </div>
+             </form>
+         </div>
+     </div>
+              <div class="crew-display">
+                 <table class="crew-display-table">
+                     <thead>
+                         <tr>
+                             <th>ship image</th>
+                             <th>captain name</th>
+                             <th>arrival date</th>
+                             <th>departure date</th>
+                             <th>cargo description</th>
+                             <th>arrival status</th>
+                             <th>berth allocated</th>
+                             <th>action</th>
+                         </tr>
+                     </thead>
+                        <tr>
+                           <td><img src="images/port3.jpg" height="100" alt=""></td>
+                           <td>mohamed</td>
+                           <td>24/5/2023</td>
+                           <td>27/5/2023</td>
+                           <td>electronics</td>
+                           <td>arrived</td>
+                           <td>RV atlantis</td>
+                           <td>
+                               <a href="arrival_update.html" class="btn"><i class="fas fa-edit"></i>edit</a>
+                               <a href="add_arrivals.html" class="btn"><i class="fas fa-trash"></i>delete</a>
+                           </td>
+                       </tr>
+               </table>
+
+              </div>
+     </div>
+    
+ </body>
+</html>

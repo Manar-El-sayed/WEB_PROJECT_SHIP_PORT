@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard">
+    <div class="menu">
+            <ul>
+                <li class="profile">
+                    <div class="img-box">
+                        <img src="images/logo1.png" alt="profile">
+                    </div>
+                    <h2>Ocean haven admin</h2>
+                </li>
+                <li>
+                    <a class="active" href="#">
+                       <i class="fas fa-home"></i>
+                       <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="crew_admin.html">
+                       <i class="fa-solid fa-users"></i>
+                       <p>Crew</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="ships_admin.html">
+                       <i class="fas fa-ship"></i>
+                       <p>ships</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="add_arrivals.html">
+                       <i class="fa-solid fa-anchor"></i>
+                       <p>Ship Arrivals</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="cargo_admin.html">
+                       <i class="fa-solid fa-dolly"></i>
+                       <p>cargo </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="users_admin.html">
+                       <i class="fas fa-user"></i>
+                       <p>users </p>
+                    </a>
+                </li>
+                <li class="log-out">
+                    <a href="#">
+                       <i class="fas fa-sign-out-alt"></i>
+                       <p>Log out</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <div class="content">
+        <div class="title-info">
+            <p>Dashboard</p>
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="data-info">
+            <div class="box">
+                <i class="fas fa-user"></i>
+                <div class="data">
+                    <p>users</p>
+                    <span>500</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-users"></i>
+                <div class="data">
+                    <p>crew</p>
+                    <span>100</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-ship"></i>
+                <div class="data">
+                    <p>ships</p>
+                    <span>50</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-anchor"></i>
+                <div class="data">
+                    <p>ship arrivals</p>
+                    <span>90</span>
+                </div>
+            </div>
+            <!-- <div class="box">
+                <i class="fa-solid fa-bookmark"></i>
+                <div class="data">
+                    <p>Shipping book</p>
+                    <span>40</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-dolly"></i>
+                <div class="data">
+                    <p>cargo</p>
+                    <span>15000</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-money-check-dollar"></i>
+                <div class="data">
+                    <p>payment</p>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-dollar"></i>
+                <div class="data">
+                    <p>revenue</p>
+                    <span>100000</span>
+                </div>
+            </div> -->
+            <!-- <div class="box">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="data">
+                    <p>contact</p>
+                    <span>us</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-star"></i>
+                <div class="data">
+                    <p>exclusive</p>
+                    <span>services</span>
+                </div>
+            </div> -->
+        </div>
+        <h3 class="table-name">ships table</h3>
+         <div class="crew-display">
+            <table class="crew-display-table">
+                <thead>
+                    <tr>
+                        <th>ship image</th>
+                        <th>ship name</th>
+                        <th>ship type</th>
+                        <th>max capacity</th>
+                        <th>registration date</th>
+                        <th>owner info</th>
+                    </tr>
+                </thead>
+                   <tr>
+                      <td><img src="images/port2.jpg" height="100" alt=""></td>
+                      <td>XYZ ship</td>
+                      <td>metal</td>
+                      <td>50000</td>
+                      <td>14/3/2022</td>
+                      <td>company@gmail.com</td>
+                  </tr>
+          </table>
+         </div>
+         <h3 class="table-name">crew table</h3>
+         <div class="crew-display">
+            <table class="crew-display-table">
+                <thead>
+                    <tr>
+                        <th>crew image</th>
+                        <th>name</th>
+                        <th>role</th>
+                        <th>nationality</th>
+                        <th>join date</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                   <tr>
+                      <td><img src="images/crew3.jpg" height="100" alt=""></td>
+                      <td>mohamed</td>
+                      <td>captain</td>
+                      <td>turkish</td>
+                      <td>1/5/2024</td>
+                      <td>mohamed@gmail.com</td>
+                  </tr>
+          </table>
+         </div>
+        <h3 class="table-name">arrivals table</h3>
+        <div class="crew-display">
+            <table class="crew-display-table">
+                <thead>
+                    <tr>
+                        <th>ship image</th>
+                        <th>captain name</th>
+                        <th>arrival date</th>
+                        <th>departure date</th>
+                        <th>cargo description</th>
+                        <th>arrival status</th>
+                        <th>berth allocated</th>
+                    </tr>
+                </thead>
+                   <tr>
+                      <td><img src="images/ship0.jpg" height="100" alt=""></td>
+                      <td>ahmed</td>
+                      <td>7/7/2024</td>
+                      <td>10/7/2024</td>
+                      <td>electronics</td>
+                      <td>arrived</td>
+                      <td>france</td>
+                  </tr>
+          </table>
+         </div>
+          <h3 class="table-name">cargo table</h3>
+          <div class="crew-display">
+            <table class="crew-display-table">
+                <thead>
+                    <tr>
+                        <th>cargo description </th>
+                        <th>cargo quantity </th>
+                        <th>cargo weight </th>
+                        <th>container type </th>
+                        <th>ship ID</th>
+                        <th>port ID </th>
+                    </tr>
+                </thead>
+                   <tr>
+                      <td>electronics</td>
+                      <td>100 peice</td>
+                      <td>10000 kg</td>
+                      <td>xyz</td>
+                      <td>1</td>
+                      <td>3</td>
+                  </tr>
+          </table>
+         </div>      
+         <h3 class="table-name">users table</h3>
+          <div class="crew-display">
+            <table class="crew-display-table">
+                <thead>
+                    <tr>
+                        <th>first name </th>
+                        <th> last name </th>
+                        <th>email </th>
+                        <th>phone number </th>
+                        <th>password</th>
+                        <th>gender</th>
+                        <th>type</th>
+                    </tr>
+                </thead>
+                   <tr>
+                      <td>manar</td>
+                      <td>ahmed</td>
+                      <td>manar@gmail.com</td>
+                      <td>01099210633</td>
+                      <td>1234</td>
+                      <td>female</td>
+                      <td>admin</td>
+                  </tr>
+          </table>
+         </div>      
+      </div> 
+</body>
+</html>
+      

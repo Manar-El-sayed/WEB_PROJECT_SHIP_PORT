@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cargo update</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <!-- css link  -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="admin-crew centered">
+<div class="container ">
+            <div class="title">update user </div>
+            <form action="" method="post" enctype="multipart/form-data">
+            <div class="user-details">
+                        <div class="input-box">
+                            <span class="details"> first name</span>
+                            <input type="text" placeholder="Enter first name of user" id="firstName" value="" name="firstName" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">last name</span>
+                            <input type="text" placeholder="Enter last name of user" id="lastName" value="" name="lastName" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">email</span>
+                            <input type="email" placeholder="Enter email" id="email" value="" name="email" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">phone number</span>
+                            <input type="number" placeholder="Enter phone number" id="number" value="" name="number" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">password</span>
+                            <input type="password" placeholder="Enter password" id="password" value="" name="password" required>
+                        </div>
+                        <div class="gender-details">
+                            <input type="radio" name="gender" id="dot-1" value="male">
+                            <input type="radio" name="gender" id="dot-2" value="female">
+                            <input type="radio" name="gender" id="dot-3" value="other">
+                            <span class="gender-title">Gender</span>
+                            <div class="category users">
+                                <label for="dot-1">
+                                    <span class="dot one"></span>
+                                    <span class="gender">male</span>
+                                </label>
+                                <label for="dot-2">
+                                    <span class="dot two"></span>
+                                    <span class="gender">female</span>
+                                </label>
+                                <label for="dot-3">
+                                    <span class="dot three"></span>
+                                    <span class="gender">perfer not to say</span>
+                                </label>
+                            </div>
+                        </div>
+                        <select name="user_type">
+                            <option value="user">user</option>
+                            <option value="admin">admin</option>
+                        </select>
+            </div>
+            <div class="button">
+                        <input type="submit" class="btn" name="update_user" value="update user">
+                        <a href="users_admin.html">go back</a>
+            </div>
+            </form>
+
+        </div>
+</div>
+
+</body>
+</html>
