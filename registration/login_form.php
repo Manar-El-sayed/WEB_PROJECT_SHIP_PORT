@@ -1,3 +1,37 @@
+<?php
+@include 'connect.php';
+session_start();
+if(isset($_POST['submit'])){
+   $email = $_POST['email'];
+   $password = $_POST['password'];
+
+   $select = "SELECT * FROM registration WHERE email = '$email' AND password = '$password'";
+
+   $result = mysqli_query($conn, $select);
+
+   if(mysqli_num_rows($result)>0){
+
+      $row = mysqli_fetch_array($result);
+
+      if($row['userType'] == 'admin'){
+
+         $_SESSION['admin_name'] = $row['firstName'];
+         header('location:admin_page.php');
+
+      }elseif($row['userType'] == 'user'){
+
+         $_SESSION['user_name'] = $row['firstName'];
+         header('location:user_page.php');
+
+      }
+   }else{
+      $_SESSION['error'] = 'Incorrect email or password!';
+   }
+}
+mysqli_close($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +45,12 @@
       <div class="container">
          <div class="title">Login</div>
          <form action="" method="post">
+         <?php
+            if(isset($_SESSION['error'])){
+               echo '<span class="error-msg">'.$_SESSION['error'].'</span>';
+               unset($_SESSION['error']);
+            };
+         ?>
             <div class="user-details">
                <div class="input-box">
                  <label for="email">Email</label>
@@ -24,7 +64,7 @@
             <div class="button">
                <input type="submit" name="submit" value="Login" >
             </div>
-               <p>Don't have an account ? <a href="register.html"> Sign Up Now</a></p>
+               <p>Don't have an account ? <a href="register.php"> Sign Up Now</a></p>
          </form>
       </div>
    </section>

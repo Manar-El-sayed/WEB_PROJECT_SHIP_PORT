@@ -1,3 +1,12 @@
+<?php 
+@include 'connect.php';
+session_start();
+if(!isset($_SESSION['admin_name'])){
+    header('location:login_form.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
@@ -12,12 +21,12 @@
         <div class="container">
             <div class="content">
                     <h3>hi, <span>admin</span></h3>
-                    <h1>welcome <span> mohame </span></h1>
+                    <h1>welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
                     <p>this is an admin page</p>
-                    <a href="../dashboard.html" class="btn">dash board</a>
-                    <a href="login_form.html" class="btn">login</a>
-                    <a href="register.html" class="btn">register</a>
-                    <a href="logout_page.html" class="btn">logout</a>
+                    <a href="../admin_panel/dashboard.html" class="btn">dash board</a>
+                    <a href="login_form.php" class="btn">login</a>
+                    <a href="register.php" class="btn">register</a>
+                    <a href="logout_page.php" class="btn">logout</a>
             </div>
         </div>
     </div>

@@ -1,4 +1,48 @@
-<!DOCTYPE html>
+<?php
+@include 'connect.php';
+
+if (isset($_POST['add_arrival'])) {
+    $shipID = $_POST['shipID'];
+    // $portID = $_POST['portID'];
+    $captainName = $_POST['captainName'];
+    $arrivalDate = $_POST['arrivalDate'];
+    $departureDate = $_POST['departureDate'];
+    $cargoDescription = $_POST['cargoDescription'];
+    $arrivalStatus = $_POST['arrivalStatus'];
+    $berthAllocated = $_POST['berthAllocated'];
+    $shipImg = $_FILES['shipImg']['name'];  
+    $shipImg_tmp_name = $_FILES['shipImg']['tmp_name'];
+    $shipImg_folder = 'images/' . $shipImg;
+
+    if (empty($captainName) || empty($arrivalDate) || empty($departureDate) || empty($cargoDescription) || empty($arrivalStatus) || empty($shipImg)) {
+        $message[] = 'Please fill out all fields.';
+    } else {
+        $check_ship = mysqli_query($conn, "SELECT * FROM ships WHERE shipID = '$shipID'");
+        
+        if (mysqli_num_rows($check_ship) > 0) {
+            $insert = "INSERT INTO shipArrivals(captainName, arrivalDate, departureDate, cargoDescription, arrivalStatus, berthAllocated, shipImg, shipID) VALUES('$captainName','$arrivalDate','$departureDate', '$cargoDescription', '$arrivalStatus','$berthAllocated','$shipImg','$shipID')";
+            $upload = mysqli_query($conn, $insert);
+
+            if ($upload) {
+                move_uploaded_file($shipImg_tmp_name, $shipImg_folder);
+                $message[] = 'New ship arrival added successfully.';
+            } else {
+                $message[] = 'Could not add this ship arrival.';
+            }
+        } else{
+            $message[] = 'Invalid ship ID.';
+        }
+    }
+}
+
+if (isset($_GET['delete'])) {
+    $arrivalID = $_GET['delete'];
+    mysqli_query($conn, "DELETE FROM shiparrivals WHERE arrivalID = $arrivalID");
+    header('location: add_arrivals.php');
+}
+ ?>
+ 
+ <!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
@@ -14,7 +58,14 @@
      <div class="form-container">
      <div class="container">
              <div class="title">Add ship arrival</div>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+             <?php
+               if(isset($message)){
+               foreach($message as $message){
+               echo '<span class="error-msg">' .$message. '</span>';
+              }
+             }
+            ?>
              <div class="user-details">
                          <div class="input-box">
                              <span class="details">Captain Name</span>
@@ -38,11 +89,11 @@
                          </div>
                          <div class="input-box">
                              <span class="details">Berth Allocated</span>
-                             <input type="text" placeholder="Enter berth allocated " id="berthAllocated" name="berthAllocated" required>
+                             <input type="text" id="berthAllocated" name="berthAllocated" required>
                          </div>
                          <div class="input-box">
                              <span class="details">Ship ID</span>
-                             <input type="number" placeholder="Enter ship ID" id="shipID" name="shipID" required>
+                             <input type="number" id="shipID" name="shipID" required>
                          </div>
                          <div class="input-box">
                              <span class="details">ship Image</span>
@@ -55,6 +106,9 @@
              </form>
          </div>
      </div>
+             <?php
+            $select = mysqli_query($conn, "SELECT * FROM shiparrivals");
+             ?>
               <div class="crew-display">
                  <table class="crew-display-table">
                      <thead>
@@ -69,19 +123,23 @@
                              <th>action</th>
                          </tr>
                      </thead>
+                     <?php
+                    while($row = mysqli_fetch_assoc($select)){
+                        ?>
                         <tr>
-                           <td><img src="images/port3.jpg" height="100" alt=""></td>
-                           <td>mohamed</td>
-                           <td>24/5/2023</td>
-                           <td>27/5/2023</td>
-                           <td>electronics</td>
-                           <td>arrived</td>
-                           <td>RV atlantis</td>
+                           <td><img src="images/<?php echo $row['shipImg'];?>" height="100" alt=""></td>
+                           <td><?php echo $row['captainName'];?></td>
+                           <td><?php echo $row['arrivalDate'];?></td>
+                           <td><?php echo $row['departureDate'];?></td>
+                           <td><?php echo $row['cargoDescription'];?></td>
+                           <td><?php echo $row['arrivalStatus'];?></td>
+                           <td><?php echo $row['berthAllocated'];?></td>
                            <td>
-                               <a href="arrival_update.html" class="btn"><i class="fas fa-edit"></i>edit</a>
-                               <a href="add_arrivals.html" class="btn"><i class="fas fa-trash"></i>delete</a>
+                               <a href="arrival_update.php?edit=<?php echo $row['arrivalID'];?>" class="btn"><i class="fas fa-edit"></i>edit</a>
+                               <a href="add_arrivals.php?delete=<?php echo $row['arrivalID'];?>" class="btn"><i class="fas fa-trash"></i>delete</a>
                            </td>
                        </tr>
+                       <?php };?>
                </table>
 
               </div>

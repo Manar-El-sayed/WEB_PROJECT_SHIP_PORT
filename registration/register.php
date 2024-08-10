@@ -1,3 +1,36 @@
+<?php
+@include 'connect.php';
+if(isset($_POST['submit'])){
+    $firstName =$_POST['firstName'];
+    $lastName =$_POST['lastName'];
+    $email =$_POST['email'];
+    $number =$_POST['number'];
+    $pass = $_POST['password'];
+    $cpass = $_POST['cPassword'];
+    $gender = $_POST['gender'];
+    $userType = $_POST['userType'];
+
+    $select = " SELECT * FROM registration WHERE email = '$email' && password = '$pass' ";
+
+    $result = mysqli_query($conn, $select);
+
+    if(mysqli_num_rows($result)>0){
+        $error[] = 'user already exist!';
+    }else{
+        if($pass != $cpass){
+            $error[] = 'password not matched!';
+        }else{
+            $insert = "INSERT INTO registration(firstName,lastName,email,number,password,gender,userType) VALUES('$firstName','$lastName','$email',
+            '$number','$pass','$gender','$userType')";
+            mysqli_query($conn, $insert);
+            header('location:login_form.php');
+
+
+        }
+    }
+};
+?>
+
 <html>
     <head>
         <title>Registration page</title>
@@ -7,15 +40,22 @@
       <section class="register">
             <div class="container">
                 <div class="title">Registration</div>
-                <form method="post" action="register.html">
+                <form method="post" action="register.php">
+                <?php
+                    if(isset($error)){
+                        foreach($error as $error){
+                            echo '<span class="error-msg">'.$error.'</span>';
+                        };
+                    };
+                    ?>
                     <div class="user-details">
                         <div class="input-box">
                             <label for="firstname" class="details">Fisrt Name</label>
-                            <input type="text" placeholder="Enter your name" id="firstname" name="firstname" required>
+                            <input type="text" placeholder="Enter your name" id="firstName" name="firstName" required>
                         </div>
                         <div class="input-box">
                             <label for="lastname" class="details">Last Name</label>
-                            <input type="text" placeholder="Enter your username" id="lastname" name="lastname" required>
+                            <input type="text" placeholder="Enter your username" id="lastName" name="lastName" required>
                         </div>
                         <div class="input-box">
                             <label for="email" class="details">Email</label>
@@ -31,7 +71,7 @@
                         </div>
                         <div class="input-box">
                             <label for="cpassword" class="details">Confirm Password</label>
-                            <input type="password" placeholder="Confirm your password" id="cpassword" name="cpassword" required>
+                            <input type="password" placeholder="Confirm your password" id="cPassword" name="cPassword" required>
                         </div>
                     </div>
                     <div class="gender-details">
@@ -54,14 +94,14 @@
                             </label>
                         </div>
                     </div>
-                    <select name="user_type">
+                    <select name="userType">
                         <option value="user">user</option>
                         <option value="admin">admin</option>
                     </select>
                     <div class="button">
                         <input type="submit" name="submit" value="Register">
                     </div>
-                    <p>already have an account ? <a href="login_form.html">login now</a>
+                    <p>already have an account ? <a href="login_form.php">login now</a>
                 </form>
             </div>
         </section>
